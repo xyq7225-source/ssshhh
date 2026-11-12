@@ -1,0 +1,24 @@
+# OS 및 시스템 임시 파일
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# 에디터 및 IDE 설정
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 로컬 개인 생성물 및 대용량 바이너리
+*.pdf
+*.log
+*.tmp
+*.bak
+
+# 환경 변수 및 비밀정보
+.env
+.env.*
+secrets.*
+credentials.*

@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>무선 헤드폰 3종 비교 & 선택 가이드</title>
+  <style>
+    :root {
+      /* 카카오 스타일 모던 웜 뉴트럴 & 옐로우 팔레트 */
+      --kakao-yellow: #FEE500;
+      --kakao-yellow-dark: #f0d500;
+      --kakao-brown: #3C1E1E;
+      --kakao-brown-light: #523131;
+      
+      --bg-main: #F7F8FA;
+      --bg-card: #FFFFFF;
+      --bg-subtle: #F3F4F6;
+      --bg-badge-soft: #FFF9D2;
+      
+      --text-title: #191919;
+      --text-body: #333333;
+      --text-muted: #767676;
+      --text-sub: #999999;
+      
+      --border-color: #E5E7EB;
+      --border-soft: #EEEEEE;
+      
+      --point-blue: #2563EB;
+      --point-coral: #E11D48;
+      --point-green: #059669;
+      
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-pill: 9999px;
+      
+      --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.04);
+      --shadow-card: 0 4px 16px rgba(0, 0, 0, 0.06);
+      --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.09);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding: 24px 16px 60px;
+    }
+
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+
+    /* 상단 헤더 */
+    header {
+      text-align: center;
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--bg-badge-soft);
+      color: var(--kakao-brown);
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 12px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-badge .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: var(--kakao-brown);
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--text-title);
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+
+    .header-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    /* 인쇄 및 PDF 저장 버튼 영역 */
+    .action-bar {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .print-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #FFFFFF;
+      color: var(--kakao-brown);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-pill);
+      padding: 9px 18px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+
+    .print-btn:hover {
+      background: var(--bg-badge-soft);
+      border-color: #FDE047;
+      transform: translateY(-1px);
+    }
+
+    /* 필수 사전 확인 알림 박스 (강조) */
+    .notice-card {
+      background: #FFFFFF;
+      border: 1px solid #FFE680;
+      border-left: 5px solid var(--kakao-yellow-dark);
+      border-radius: var(--radius-md);
+      padding: 16px 18px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .notice-icon {
+      font-size: 1.3rem;
+      line-height: 1.2;
+    }
+
+    .notice-content {
+      font-size: 0.88rem;
+      color: var(--text-body);
+      line-height: 1.6;
+    }
+
+    .notice-content strong {
+      color: var(--text-title);
+    }
+
+    .notice-highlight {
+      display: inline-block;
+      margin-top: 4px;
+      background: #FFFBEB;
+      color: #B45309;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px dashed #FCD34D;
+    }
+
+    /* 카카오풍 퀵 셀렉션 가이드 */
+    .selection-guide {
+      background: #FFFFFF;
+      border-radius: var(--radius-lg);
+      padding: 22px 20px;
+      box-shadow: var(--shadow-card);
+      margin-bottom: 28px;
+    }
+
+    .guide-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-title);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .guide-chips {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    @media (min-width: 768px) {
+      .guide-chips {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .chip-item {
+      background: var(--bg-subtle);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      border: 1px solid transparent;
+    }
+
+    .chip-item:hover {
+      background: #FFFDF0;
+      border-color: #FDE047;
+      transform: translateY(-2px);
+    }
+
+    .chip-header {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--kakao-brown);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .chip-body {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    .chip-target {
+      margin-top: 4px;
+      font-weight: 700;
+      font-size: 0.86rem;
+      color: var(--text-title);
+    }
+
+    /* 3열 제품 카드 그리드 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+
+    @media (min-width: 880px) {
+      .card-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .product-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 24px 20px 20px;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      border: 1px solid var(--border-color);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .badge-pill {
+      align-self: flex-start;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 12px;
+      background: var(--bg-subtle);
+      color: var(--text-muted);
+    }
+
+    .badge-sony { background: #EEF2FF; color: #4338CA; }
+    .badge-bose { background: #ECFDF5; color: #047857; }
+    .badge-qcy { background: #F5F3FF; color: #6D28D9; }
+
+    .product-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text-title);
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .price-container {
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .price-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+    }
+
+    .price-main {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text-title);
+    }
+
+    .check-badge {
+      display: inline-flex;
+      align-items: center;
+      background: #FEE2E2;
+      color: #DC2626;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-left: 4px;
+      vertical-align: middle;
+    }
+
+    /* 선택 이유 & 아쉬운 점 리스트 */
+    .analysis-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    .analysis-box {
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      font-size: 0.86rem;
+    }
+
+    .box-why {
+      background: #F0FDF4;
+      border: 1px solid #BBF7D0;
+    }
+
+    .box-caution {
+      background: #FFF1F2;
+      border: 1px solid #FECDD3;
+    }
+
+    .box-header {
+      font-weight: 800;
+      font-size: 0.85rem;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .box-why .box-header { color: #166534; }
+    .box-caution .box-header { color: #9F1239; }
+
+    .analysis-box ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .analysis-box li {
+      margin-bottom: 5px;
+      padding-left: 14px;
+      position: relative;
+      line-height: 1.45;
+      color: var(--text-body);
+      font-size: 0.84rem;
+    }
+
+    .box-why li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: #16A34A;
+      font-size: 0.75rem;
+    }
+
+    .box-caution li::before {
+      content: "▲";
+      position: absolute;
+      left: 0;
+      color: #E11D48;
+      font-size: 0.7rem;
+    }
+
+    /* 후기 박스 */
+    .review-stat {
+      background: var(--bg-subtle);
+      border-radius: var(--radius-sm);
+      padding: 9px 12px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* 카카오 시그니처 버튼 */
+    .kakao-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      width: 100%;
+      background: var(--kakao-yellow);
+      color: var(--kakao-brown);
+      text-decoration: none;
+      padding: 13px;
+      border-radius: var(--radius-md);
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: background 0.15s ease, transform 0.1s ease;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+
+    .kakao-btn:hover {
+      background: var(--kakao-yellow-dark);
+      transform: translateY(-1px);
+    }
+
+    .kakao-btn:active {
+      transform: scale(0.98);
+    }
+
+    /* 테이블 영역 */
+    .table-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 24px 20px;
+      box-shadow: var(--shadow-card);
+      border: 1px solid var(--border-color);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin-bottom: 32px;
+    }
+
+    .table-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-title);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      text-align: left;
+    }
+
+    th, td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border-soft);
+      vertical-align: top;
+      min-width: 150px;
+    }
+
+    th {
+      color: var(--text-muted);
+      font-weight: 700;
+      background: #F9FAFB;
+      white-space: nowrap;
+    }
+
+    td {
+      color: var(--text-body);
+      line-height: 1.5;
+    }
+
+    .link-table {
+      display: inline-block;
+      background: #F3F4F6;
+      color: var(--text-title);
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 0.82rem;
+      transition: background 0.2s;
+    }
+
+    .link-table:hover {
+      background: #E5E7EB;
+    }
+
+    /* 푸터 */
+    footer {
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--text-sub);
+      line-height: 1.6;
+    }
+
+    footer p {
+      margin-bottom: 4px;
+    }
+
+    /* 인쇄 및 PDF 미디어 쿼리 */
+    @media print {
+      body {
+        background-color: #FFFFFF;
+        color: #000000;
+        padding: 0;
+      }
+      .action-bar, .link-btn, .kakao-btn, .link-table {
+        display: none !important;
+      }
+      .container {
+        max-width: 100%;
+      }
+      .card-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 12px !important;
+      }
+      .product-card, .table-card, .selection-guide {
+        box-shadow: none !important;
+        border: 1px solid #CCCCCC !important;
+        break-inside: avoid;
+      }
+      .notice-card {
+        border: 1px solid #999999 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <!-- 헤더 -->
+    <header>
+      <div class="header-badge">
+        <span class="dot"></span>
+        <span>스마트 쇼핑 가이드 (교육용 데모)</span>
+      </div>
+      <h1>무선 헤드폰 3종 비교 & 선택 가이드</h1>
+      <div class="header-desc">
+        <span>📅 확인 날짜: <strong>2026년 11월 12일</strong></span>
+        <span>🔎 기준: 쿠팡 대표 유통 상품 & 제조사 공식 규격</span>
+      </div>
+
+      <!-- 인쇄 / PDF 저장 버튼 -->
+      <div class="action-bar">
+        <button class="print-btn" onclick="window.print()">
+          <span>🖨️ 인쇄 / PDF로 저장하기</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- 필수 사전 확인 알림 박스 (강조) -->
+    <div class="notice-card">
+      <div class="notice-icon">⚠️</div>
+      <div class="notice-content">
+        <strong>구매 전 필수 확인 안내</strong><br>
+        쿠팡 특가 행사, 카드사 즉시 할인, 회원 와우 할인가 및 입점 판매처의 재고·가격은 <strong>실시간으로 변동</strong>됩니다. 확인되지 않은 실시간 최저가나 리뷰 수는 허위 정보를 방지하기 위해 <strong>[확인 필요]</strong>로 표시했습니다.<br>
+        <span class="notice-highlight">👉 실제 구매 전에는 반드시 아래 쿠팡 상품 페이지 링크로 이동하여 '현재 실판매 가격'과 '배송 조건'을 다시 확인해 주세요.</span>
+      </div>
+    </div>
+
+    <!-- 나에게 맞는 헤드폰 한눈에 찾기 (카카오 친화적 카드) -->
+    <section class="selection-guide">
+      <h2 class="guide-title">
+        <span>🎯</span>
+        <span>내게 맞는 제품 빠르게 찾기</span>
+      </h2>
+      <div class="guide-chips">
+        <div class="chip-item">
+          <div class="chip-header">
+            <span>🔇</span>
+            <span>소음 차단 & 음질 우선</span>
+          </div>
+          <div class="chip-body">대중교통 소음을 지우고 고해상도 음원을 듣고 싶다면</div>
+          <div class="chip-target">👉 소니 WH-1000XM5</div>
+        </div>
+        <div class="chip-item">
+          <div class="chip-header">
+            <span>☁️</span>
+            <span>착용감 & 가방 휴대 우선</span>
+          </div>
+          <div class="chip-body">종일 써도 귀가 편하고 작게 접어 다니고 싶다면</div>
+          <div class="chip-target">👉 보스 QC 울트라</div>
+        </div>
+        <div class="chip-item">
+          <div class="chip-header">
+            <span>⚡</span>
+            <span>가격 부담 제로 & 막 쓰기</span>
+          </div>
+          <div class="chip-body">운동·일상에서 잃어버릴 걱정 없이 편하게 쓰려면</div>
+          <div class="chip-target">👉 QCY H3</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3개 제품 상세 카드 그리드 -->
+    <section class="card-grid">
+      
+      <!-- 카드 1: 소니 WH-1000XM5 -->
+      <article class="product-card">
+        <span class="badge-pill badge-sony">소음차단 & 고해상도 음질</span>
+        <h3 class="product-title">소니 WH-1000XM5</h3>
+        
+        <div class="price-container">
+          <div class="price-sub">공식 정가</div>
+          <div class="price-main">519,000원</div>
+          <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 4px;">
+            쿠팡 할인가: <span class="check-badge">확인 필요</span>
+          </div>
+        </div>
+
+        <div class="analysis-section">
+          <!-- 선택 이유 -->
+          <div class="analysis-box box-why">
+            <div class="box-header">이 제품을 선택하는 이유</div>
+            <ul>
+              <li><strong>압도적 노이즈 캔슬링:</strong> 비행기·지하철 저음역 소음을 가장 완벽히 차단</li>
+              <li><strong>고음질 LDAC 코덱:</strong> 고해상도 무선 사운드로 섬세한 음원 감상 가능</li>
+              <li><strong>250g 초경량 바디:</strong> 목과 머리에 걸리는 무게 하중이 적음</li>
+            </ul>
+          </div>
+          <!-- 아쉬운 점 -->
+          <div class="analysis-box box-caution">
+            <div class="box-header">구매 전 확인할 아쉬운 점</div>
+            <ul>
+              <li><strong>접히지 않는 힌지:</strong> 평평하게 눕혀지기만 하여 파우치 부피가 큼</li>
+              <li><strong>높은 가격대:</strong> 50만 원이 넘는 출고가로 초기 진입 장벽 존재</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="review-stat">
+          <span>실시간 리뷰 및 평점</span>
+          <span class="check-badge">확인 필요</span>
+        </div>
+
+        <a class="kakao-btn" href="https://www.coupang.com/np/search?component=&q=WH-1000XM5" target="_blank" rel="noopener noreferrer">
+          <span>쿠팡에서 실시간 확인하기</span>
+          <span>→</span>
+        </a>
+      </article>
+
+      <!-- 카드 2: 보스 QuietComfort Ultra -->
+      <article class="product-card">
+        <span class="badge-pill badge-bose">극상의 편안함 & 공간음향</span>
+        <h3 class="product-title">보스 QC 울트라</h3>
+        
+        <div class="price-container">
+          <div class="price-sub">공식 정가</div>
+          <div class="price-main">499,000원</div>
+          <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 4px;">
+            쿠팡 할인가: <span class="check-badge">확인 필요</span>
+          </div>
+        </div>
+
+        <div class="analysis-section">
+          <!-- 선택 이유 -->
+          <div class="analysis-box box-why">
+            <div class="box-header">이 제품을 선택하는 이유</div>
+            <ul>
+              <li><strong>독보적인 착용감:</strong> 안경을 쓰거나 장시간 일해도 정수리 압박이 가장 적음</li>
+              <li><strong>접이식(폴딩) 구조:</strong> 작게 접혀 미니백이나 파우치 수납에 최적화</li>
+              <li><strong>몰입형 공간 오디오:</strong> 영화·콘텐츠 감상 시 현장감 넘치는 입체 음향</li>
+            </ul>
+          </div>
+          <!-- 아쉬운 점 -->
+          <div class="analysis-box box-caution">
+            <div class="box-header">구매 전 확인할 아쉬운 점</div>
+            <ul>
+              <li><strong>LDAC 코덱 미지원:</strong> 소니와 같은 고음질 특화 전용 코덱의 부재</li>
+              <li><strong>높은 가격대:</strong> 40만 원대 후반의 고가 플래그십 모델</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="review-stat">
+          <span>실시간 리뷰 및 평점</span>
+          <span class="check-badge">확인 필요</span>
+        </div>
+
+        <a class="kakao-btn" href="https://www.coupang.com/np/search?component=&q=Bose+QuietComfort+Ultra" target="_blank" rel="noopener noreferrer">
+          <span>쿠팡에서 실시간 확인하기</span>
+          <span>→</span>
+        </a>
+      </article>
+
+      <!-- 카드 3: QCY H3 -->
+      <article class="product-card">
+        <span class="badge-pill badge-qcy">입문 & 부담 없는 가성비</span>
+        <h3 class="product-title">QCY H3 노이즈캔슬링</h3>
+        
+        <div class="price-container">
+          <div class="price-sub">기준 시세</div>
+          <div class="price-main">약 3만 ~ 5만 원대</div>
+          <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 4px;">
+            쿠팡 실판매가: <span class="check-badge">확인 필요</span>
+          </div>
+        </div>
+
+        <div class="analysis-section">
+          <!-- 선택 이유 -->
+          <div class="analysis-box box-why">
+            <div class="box-header">이 제품을 선택하는 이유</div>
+            <ul>
+              <li><strong>압도적인 가격 메리트:</strong> 플래그십의 1/10도 안 되는 가격으로 ANC 체감</li>
+              <li><strong>최대 60시간 배터리:</strong> 잦은 충전 번거로움 없이 넉넉한 사용 시간</li>
+              <li><strong>편안한 막쓰기:</strong> 헬스장 땀 범벅, 야외 활동에서도 고장 걱정 없음</li>
+            </ul>
+          </div>
+          <!-- 아쉬운 점 -->
+          <div class="analysis-box box-caution">
+            <div class="box-header">구매 전 확인할 아쉬운 점</div>
+            <ul>
+              <li><strong>소재 마감 & 해상력:</strong> 플라스틱 질감 및 음향 해상도의 체감적 한계</li>
+              <li><strong>고음역 차음성:</strong> 주변 말소리나 날카로운 소음 차단력은 상대적으로 낮음</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="review-stat">
+          <span>실시간 리뷰 및 평점</span>
+          <span class="check-badge">확인 필요</span>
+        </div>
+
+        <a class="kakao-btn" href="https://www.coupang.com/np/search?component=&q=QCY+H3" target="_blank" rel="noopener noreferrer">
+          <span>쿠팡에서 실시간 확인하기</span>
+          <span>→</span>
+        </a>
+      </article>
+
+    </section>
+
+    <!-- 상세 비교 표 -->
+    <section class="table-card">
+      <h2 class="table-title">
+        <span>📊</span>
+        <span>한눈에 보는 핵심 사양 및 비교 요약</span>
+      </h2>
+      <table>
+        <thead>
+          <tr>
+            <th>비교 항목</th>
+            <th>소니 WH-1000XM5</th>
+            <th>보스 QC 울트라</th>
+            <th>QCY H3</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>공식 정가</strong></td>
+            <td>519,000원</td>
+            <td>499,000원</td>
+            <td>오픈가 (정가 정책 없음)</td>
+          </tr>
+          <tr>
+            <td><strong>쿠팡 실판매가</strong></td>
+            <td><span class="check-badge">확인 필요</span></td>
+            <td><span class="check-badge">확인 필요</span></td>
+            <td><span class="check-badge">확인 필요</span></td>
+          </tr>
+          <tr>
+            <td><strong>구매 후기 / 평점</strong></td>
+            <td><span class="check-badge">확인 필요</span></td>
+            <td><span class="check-badge">확인 필요</span></td>
+            <td><span class="check-badge">확인 필요</span></td>
+          </tr>
+          <tr>
+            <td><strong>선택해야 하는 이유</strong></td>
+            <td>업계 최고의 소음 차단력과 LDAC 음질</td>
+            <td>종일 써도 편한 착용감과 컴팩트한 접이식 휴대</td>
+            <td>3~5만 원대의 부담 없는 가성비와 60시간 배터리</td>
+          </tr>
+          <tr>
+            <td><strong>구매 전 확인할 단점</strong></td>
+            <td>안 접히는 설계로 케이스 부피 큼</td>
+            <td>소니 대비 고음질 코덱(LDAC) 부재</td>
+            <td>플라스틱 마감 소재 및 고음역 차음 한계</td>
+          </tr>
+          <tr>
+            <td><strong>힌지 구조</strong></td>
+            <td>스위블 회전만 지원 (접기 불가)</td>
+            <td>폴딩(안쪽으로 접기) 지원</td>
+            <td>폴딩(안쪽으로 접기) 지원</td>
+          </tr>
+          <tr>
+            <td><strong>쿠팡 바로가기</strong></td>
+            <td><a class="link-table" href="https://www.coupang.com/np/search?component=&q=WH-1000XM5" target="_blank">상품 보러가기 ↗</a></td>
+            <td><a class="link-table" href="https://www.coupang.com/np/search?component=&q=Bose+QuietComfort+Ultra" target="_blank">상품 보러가기 ↗</a></td>
+            <td><a class="link-table" href="https://www.coupang.com/np/search?component=&q=QCY+H3" target="_blank">상품 보러가기 ↗</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 푸터 -->
+    <footer>
+      <p>본 대시보드는 2026-11-12 기준 작성된 교육용/참고용 비교 페이지입니다.</p>
+      <p>쿠팡의 실시간 할인 가격 및 실제 구매자 리뷰는 각 링크를 통해 최신 정보를 직접 확인하시기 바랍니다.</p>
+    </footer>
+
+  </div>
+</body>
+</html>
